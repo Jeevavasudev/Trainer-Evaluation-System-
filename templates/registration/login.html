@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login Page</title>
+<body>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image:url('https://img.freepik.com/premium-vector/cute-little-student-girl-read-book-icon-back-school-background-design-vector_116849-622.jpg?w=2000');
+            margin: 100;
+            padding: 70;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+             box-sizing: border-box; 
+            padding: 2rem;
+            border-radius: 8rem;
+            background-color:#FFFDD0;
+            border: 6px solid hsl(0, 0%, 90%);
+            display: grid;
+            gap: 2rem;  
+          }
+        </style>
+      <form method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+             <input type="submit" value="login">
+           
+            {{msg}}
+  
+        </form> 
+    </body>
+    </html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <script src="" async defer></script>
+        <div class="container">
+            <h1 class="text-center py-3">Details of Evaluation</h1>
+            <div class="card p-4 m-4">
+                <form action="submit-form" method='POST'>
+                {%for i in data %}
+    
+                <p style="font-size: 23px;"><strong>Teacher Name:</strong><br>{{ i.trainer_name}}</p>
+                <p style="font-size: 23px;"><strong>Dated on:</strong><br>{{ i.date_submitted|date:'d F, Y H:i e' }}</p>
+                <hr class="p-0 m-0 mb-3">
+                <p style="font-size: 23px;"><strong>The teacher is punctual in coming to class:</strong><br>{{ i.punctuality }}</p>
+                <p style="font-size: 23px;"><strong>The teacher completes portions at the appropriate time:</strong><br>{{ i.portion }}</p>
+                <p style="font-size: 23px;"><strong>The teacher takes in effort to clear your doubts:</strong><br>{{ i.doubt }}</p>
+                <p style="font-size: 23px;"><strong>The teacher makes the class interactive:</strong><br>{{ i.interactive }}</p>
+                <p style="font-size: 23px;"><strong>Other Comments:</strong><br>{{ i.comments }}</p>
+                
+                </form>
+                
+            
+        
+              
+                <a href="deletefeedback/{{i.id}}">
+                
+                    <input type="submit">Edit your response</input></a>
+                <a href="feedback">
+                    <input type='submit'>Update your response</input></a>
+                
+                   
+                {%endfor%}
+                
+    
+                <div class="row pt-3">
+                    {% comment %} <a class="btn btn-outline-primary ml-4 mr-4 col" role="button" href="{% url 'ListFeedbackView' %}">Back to all Evaluation</a> {% endcomment %}
+                    <!-- TODO: Add a confirmation modal -->
+                    <!-- TODO: Add link to delete feedback and go to all feedbacks -->
+                    {% comment %} <a class="btn btn-outline-danger mr-4 col" role="button" href="{% url 'DeleteFeedbackView' feedback.id %}">Delete this Evaluation</a> {% endcomment %}
+                    {% comment %} <a class="btn btn-outline-secondary mr-4 col" role="button" href="{% url 'LogoutView' %}">Logout</a>
+                </div> 
+            </div>
+        </div> {% endcomment %}
+    </body>
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Index Page</title>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+   {% comment %} <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">  {% endcomment %}
+</head>
+<style>
+  {% comment %} @import url('https://fonts.googleapis.com/css2?family-Poppins:wght@300;400;500;600;700;800;900&display=swap') {% endcomment %}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'poppins', sans-serif;
+
+}
+
+body{
+    {% comment %} background: #081b29; {% endcomment %}
+    background-image: url('https://cdn.wallpapersafari.com/74/21/F3nTqy.jpg');
+    color: #ededed;
+
+
+} 
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 10%;
+  background: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index;
+
+}
+
+.logo{
+  position:relative;
+  font-size:25px;
+  color:#00abf0;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.logo::before{
+  content: ' ';
+  position:absolute;
+  top:0;
+  right:0;
+  width:100%;
+  height:100%;
+  background:081b29;
+  animation: showRight 1s ease forwards;;
+  animation-delay: .4s;
+}
+.navbar a {
+  font-size:18px;
+  color:#ededed;
+  text-decoration:none;
+  font-weight:500;
+  margin-left:35px;
+}
+
+
+.navbar a:hover {
+  color:#03abf0;
+}
+
+.home {
+  height:100vh;
+  {% comment %} background: url("D:\FINALPROJECT\teacherevaluation\templates\static\home.jpg") no-repeat;
+  background-size:cover;
+  background-position:center; {% endcomment %}
+  display: flex;
+  align-items: center;
+  padding:0 10%;
+
+}
+.home-content{
+ 
+  max-width:600px;
+
+}
+.home-content h1{
+  font-size:56px;
+  font-weight:700;
+  line-height:1.2;
+}
+
+.home-content p{
+  font-size:16px;
+  margin:20px 0 40px;
+}
+
+.home-sci{
+  position: absolute;
+  bottom: 40px;
+  width: 170px;
+  display:flex;
+  justify-content:space-between;
+}
+
+.home-sci a{
+  position:relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items:center;
+  width:40px;
+  height:40px;
+  background:transparent;
+  border: 2px solid #00abf0;
+  border-radius:50%;
+  font-size:20px;
+  color: #00abf0;
+  text-decoration:none;
+  z-index:1;
+  overflow:hidden;
+  transition:.5s;
+}
+.home-sci a:hover{
+  color:#081b29;
+
+
+.home-sci a::before {
+  content: '';
+  position:absolute;
+  top:0;
+  let:0;
+  width:0%;
+  height:100%;
+  background:#00abf0;
+  z-index:-1;
+  transition:.5s;
+  
+}
+.home-sci a:hover::before {
+  width:100%;
+
+}
+ 
+@keyframes showRight{
+  100%{
+    width:0;
+  }
+}
+
+</style>
+<body>
+   
+    <header class="header">
+      <a href="#" class="logo">ONE TEAM SOLUTIONS</a>
+
+      <nav class="navbar">
+        
+        <a href="{% url 'login' %}" class="btn btn-primary">Login as Student</a>
+        <a href="{% url 'signup' %}" class="btn btn-primary">Sign Up</a>
+        <a href="{% url 'trainersignuphome' %}" class="btn btn-primary"> trainer Sign Up</a>
+        <a href="{% url 'trainerlogin' %}" class="btn btn-primary">Login as Trainer</a>
+
+      </nav>
+    </header>
+
+    <section class="home">
+      <div class="home-content">
+        <h1>About Us</h1>
+        <p>At One Team Solutions, we give high importance for Student's Feedback. 
+
+          Your comments and feedback will be kept confidential. Please be honest while sharing the feedback,
+           so that we can make positive changes in our Training Programs.  
+          
+          Please share your Feedback about the classes on this website</p>
+
+      
+        </div>
+        <div class="home-sci">
+          <a href="#"><i class='bx bxl-facebook-circle'></i></a>
+          <a href="#"><i class='bx bxl-twitter' ></i></a>
+          <a href="#"><i class='bx bxl-linkedin-square' ></i></a>
+    
+  {% comment %} <div class="navbar"> {% endcomment %}
+       
+         
+          {% comment %} <a href="{% url 'login' %}" class="btn btn-primary">Login as Student</a>
+          <a href="{% url 'signup' %}" class="btn btn-primary">Sign Up</a> {% endcomment %}
+          {% comment %} <a href="{% url 'trainersignup' %}" class="btn btn-primary">Trainer Sign Up </a> {% endcomment %}
+           {% comment %} <a href="{% url 'trainerlogin' %}" class="btn btn-primary">Login as Trainer</a>
+      </div>
+     <div class="row">
+          <h2>About Us</h2>
+          <p>At One Team Solutions, we give high importance for Student's Feedback. 
+
+            Your comments and feedback will be kept confidential. Please be honest while sharing the feedback,
+             so that we can make positive changes in our Training Programs.  
+            
+            Please share your Feedback about the classes on this website.</p>
+        </div>
+      </div>
+    </div> {% endcomment %}
+
+
+
+    {% comment %} <script src="path/to/bootstrap.min.js"></script>  {% endcomment %}
+</body>
+
+</html>
+
+            {% comment %} <a href="{% url 'login' %}" align='right'>LOGIN</a>
+            <a href="{% url 'signup' %}" align='right'>SIGN UP</a> {% endcomment %}
+ 

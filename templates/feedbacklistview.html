@@ -1,0 +1,85 @@
+ <!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <style>
+        body{
+            background-color:#AEC6CF;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+          }
+            .container {
+              border-collapse: separate;
+              border-spacing: 90px;
+              width: 100%;
+              max-width: 600px; 
+              margin: 0 auto; 
+              background-color: #f9f9f9;
+              border: 10px solid #ddd;
+              justify-content: center;
+              align-items: center;
+            
+            }
+        </style>
+    <body>
+        <div class="container">
+           <center> <h1 class="text-center py-3">Recent Evaluation</h1></center>
+            
+            <div class="row mt-3">
+                <div class="col-9">               
+                    {% comment %} <form action="submit-form" method='POST'> {% endcomment %}
+                        {%for i in list %} 
+                        <p style="font-size: 23px;"><strong>Teacher Name:</strong><br>{{ i.trainer_name}}</p>
+                        <p style="font-size: 23px;"><strong>Dated on:</strong><br>{{ i.date_submitted|date:'d F, Y H:i e' }}</p>
+                        <p style="font-size: 23px;"><strong>The teacher is punctual in coming to class:</strong><br>{{ i.punctuality }}</p>
+                        <p style="font-size: 23px;"><strong>The teacher completes portions at the appropriate time:</strong><br>{{ i.portion }}</p>
+                        <p style="font-size: 23px;"><strong>The teacher takes in effort to clear your doubts:</strong><br>{{ i.doubt }}</p>
+                        <p style="font-size: 23px;"><strong>The teacher makes the class interactive:</strong><br>{{ i.interactive }}</p>
+                        <p style="font-size: 23px;"><strong>Other Comments:</strong><br>{{ i.comments }}</p>
+
+                        <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br><hr>
+                        {%endfor%}
+                        {% comment %} <div id="starRating">
+                            <span class="star" data-rating="1">&#9733;</span>
+                            <span class="star" data-rating="2">&#9733;</span>
+                            <span class="star" data-rating="3">&#9733;</span>
+                            <span class="star" data-rating="4">&#9733;</span>
+                            <span class="star" data-rating="5">&#9733;</span>
+                        </div>
+                        <input type="hidden" name="rating" id="ratingInput">
+                        <input type="hidden" name="rating" id="ratingInput">
+                            <input type="submit" value="Submit">
+                                    </form>
+                                    <script src="{% static 'js/teacher_evalution.js' %}"></script> {% endcomment %}
+                   
+                    {% comment %} </form> {% endcomment %}
+                </div>
+    
+                <!-- Right side bar -->
+                {% comment %} <div class="col-3">
+                    <ul class="list-group list-group-flush">
+                        <!-- Form to search Teachers' name and get feedbacks on them -->
+                        <form class="list-group-item list-group-item-action" action="{% url 'SearchResultsView' %}" method="get">
+                            <input type="text" name="q" placeholder="Search for Teacher" autocomplete="on" autofocus="on" id="search-field">
+                        </form>
+                        <a class="list-group-item list-group-item-action" role="button" href="{% url 'LogoutView' %}">Logout</a>
+                        <a class="list-group-item list-group-item-action" role="button" href="{% url 'ListFeedbackView' %}">View all Evaluation</a>
+                        <!-- TODO: Add a confirmation modal -->
+                        <a class="list-group-item list-group-item-action" role="button" href="{% url 'deleteAllFeedback' %}">Delete all Evaluation</a>
+                    </ul>
+                </div> {% endcomment %}
+            </div>
+        </div>
+    </body>
+</html>

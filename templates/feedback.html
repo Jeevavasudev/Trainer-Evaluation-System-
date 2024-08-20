@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        
+        <title>feedback</title>
+
+        <style>
+            body {
+                margin: 0;
+                background-color: hsl(0, 0%, 55%);
+                color: #333;
+                font: 100% / normal sans-serif;
+                background-image: url("D:\FINALPROJECT\teacherevaluation\background.jpg");
+                  
+              }
+              
+              main {
+                margin: 0 auto;
+                padding: 4rem 0;
+                width: 90%;
+                max-width: 60rem;
+              }
+              
+               form {
+                box-sizing: border-box;
+                padding: 2rem;
+                border-radius: 1rem;
+                background-color:#FFFDD0;
+                border: 4px solid hsl(0, 0%, 90%);
+                display: grid;
+                gap: 2rem;  
+              }
+              
+            
+        </style>
+          
+    </head>
+    <body>
+        
+        {% comment %} {% load crispy_forms_tags %} {% endcomment %}
+        <div class="container">
+            <main>
+            <form method="POST" >
+                {% csrf_token %}
+                
+                <center><legend class="text-center mt-4"><h1>Evaluation Form</h1></legend><br>
+                <i>* All fields are compulsory</i></center>
+                {{form.as_p}}
+                {% comment %} {{ form |crispy  }} {% endcomment %}
+                <div class="form-group">
+                   
+                    <button class="btn btn-success" type="submit">Submit Evaluation</button> 
+                </div>
+                
+            </form>
+        </main>
+            <div>
+                <a href="{% url 'home' %}">Cancel</button> 
+            </div>
+        </div>
+    </body>
+</html>
